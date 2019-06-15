@@ -5,11 +5,11 @@ import { ItemModule } from './modules/item/item.module';
 import { CategoryModule } from './modules/category/category.module';
 
 import { AppController } from './app.controller';
-
+import { BrandModule } from './modules/brand/brand.module';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [ItemModule, CategoryModule, MongooseModule.forRoot('mongodb://localhost:27017/brandship_db', { useNewUrlParser: true })],
+  imports: [ItemModule, CategoryModule, BrandModule, MongooseModule.forRoot('mongodb://localhost:27017/brandship_db', { useNewUrlParser: true })],
   controllers: [AppController],
   providers: [AppService],
 })
