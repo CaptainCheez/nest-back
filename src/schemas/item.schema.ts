@@ -1,12 +1,14 @@
 import * as mongoose from 'mongoose';
 
 export const ItemSchema = new mongoose.Schema({
-	id: String,
-	title: String,
-	description: String,
     image: String,
+    title: String,
     price: Number,
+    salePrice: Number,
+    photos: [String],
+    colors: [String],
+    sizes: [String],
+    brandId: String,
     categories: [Number],
-    brand: String,
-    sex: String,
+    for: String,
 })

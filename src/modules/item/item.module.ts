@@ -5,7 +5,7 @@ import { ItemController } from '../../controllers/item/item.controller';
 import { ItemService } from '../../services/item/item.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([{name: 'Item', schema: ItemSchema}])],
+    imports: [MongooseModule.forFeature([{name: 'Items', schema: ItemSchema}])],
     controllers: [ItemController],
     providers: [ItemService],
 })

@@ -2,10 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Item } from '../../interfaces/item.interface';
+import { UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+const shortid = require('shortid');
 
 @Injectable()
 export class ItemService {
-    constructor(@InjectModel('Item') private readonly itemModel:Model<Item>){}
+    constructor(@InjectModel('Items') private readonly itemModel:Model<Item>){}
 	async findAll(): Promise<Item[]> {
 		return await this.itemModel.find();
 	}
@@ -26,8 +29,21 @@ export class ItemService {
         return await this.itemModel.find({brand: brandId, categories: categoryId})
     }
 
-	async createItem(item: Item): Promise<Item> {
-		const newItem = new this.itemModel(item);
+	async createItem(file, item): Promise<Item> {
+		const itemDto = {
+			title: item.title,
+			image: item.path,
+			sizes: item.sizes,
+			photos: [file.path],
+			colors: item.colors,
+			categories: item.categories,
+			price: item.price,
+			brandId: item.brandId,
+			salePrice: item.salePrice,
+			for: item.for,
+			id: shortid.generate()
+		}
+		const newItem = this.itemModel(itemDto);
 		return await newItem.save();
 	}
 

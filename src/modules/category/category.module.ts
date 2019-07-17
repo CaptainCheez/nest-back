@@ -5,8 +5,8 @@ import { CategoryController } from 'src/controllers/category/category.controller
 import { CategoryService } from 'src/services/category/category.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([{name: 'Categorys', schema: CategorySchema}])],
+    imports: [MongooseModule.forFeature([{name: 'Categories', schema: CategorySchema}])],
     controllers: [CategoryController],
-    providers: [CategoryService],
+    providers: [CategoryService]
 })
 export class CategoryModule {}

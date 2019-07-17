@@ -1,10 +1,12 @@
 export class CreateItemDto {
-	readonly id?: string;
-	readonly title: string;
-	readonly description?: string;
-    readonly image?: string;
-    readonly price: number;
+    readonly image: string;
+    readonly title: string;
+    readonly price: string;
+    readonly salePrice?: string;
+    readonly photos: string[];
+    readonly colors: string[];
+    readonly sizes: string[];
     readonly categories: number[];
-    readonly brand: string;
-    readonly sex: string;
+    readonly brandId: string;
+    readonly for: string;
 }

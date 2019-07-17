@@ -9,7 +9,7 @@ import { BrandModule } from './modules/brand/brand.module';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [ItemModule, CategoryModule, BrandModule, MongooseModule.forRoot('mongodb://localhost:27017/brandship_db', { useNewUrlParser: true })],
+  imports: [ItemModule, CategoryModule, BrandModule, MongooseModule.forRoot('mongodb://localhost:27017/mambo', { useNewUrlParser: true })],
   controllers: [AppController],
   providers: [AppService],
 })

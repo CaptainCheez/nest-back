@@ -10,6 +10,10 @@ export class BrandService {
 		return await this.brandModel.find();
 	}
 
+	async findGroup(): Promise<Brand[]> {
+		return await this.brandModel.find({"name": "Nike"})
+	}
+
 	async findOne(id: string): Promise<Brand> {
 		return await this.brandModel.findOne({ _id: id });
     }
